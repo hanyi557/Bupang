@@ -1053,14 +1053,9 @@ transform: translateY(0);
   max-width: 600px;
   object-fit: cover;
   transform: rotateX(-90deg) scale(1.2); /* start flipped down */
-  transform-origin: top;
+  transform-origin: top; /* flip from top edge */
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease;
-  backface-visibility: hidden;        /* add this */
-  -webkit-backface-visibility: hidden; /* safari prefix */
-  transform-style: preserve-3d;        /* ensure 3D effect */
-  -webkit-transform-style: preserve-3d;
-  will-change: transform, opacity;      /* hints GPU acceleration */
 }
 
 .flip-down img.animate {
