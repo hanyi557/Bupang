@@ -1494,9 +1494,62 @@ transform: translateY(0);
     margin-top: 20px;
   }
 
-  .vision .image,
+  .vision .image {
+    flex: 1 1 100%;
+    perspective: 700px; 
+    padding: 0 10px;
+    margin-top: -30px;
+  }
+  
+  .mission img,
+  .vision img {
+    max-width: 100%;
+    transform: scale(1); 
+    opacity: 1; 
+  }
+
   .flip-down {
     flex: 1 1 100%;
+    perspective: 700px;
+    transform-style: preserve-3d;
+  }
+
+  .flip-down img {
+    display: block;
+    max-width: 100%;
+    transform: rotateX(-75deg);
+    transform-origin: top;
+    transition: transform 0.8s ease-out, opacity 0.6s ease-out;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  .flip-down img.animate {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+
+
+  .mission h2 {
+    font-size: 30px;
+    margin-top: 70px;
+  }
+
+  .vision h2{
+    font-size: 30px;
+    margin-top: 30px;
+  }
+  .mission p, .vision p {
+    font-size: 18px;
+    text-align: center;
+    padding: 0 25px 0;
+  }
+
+  /* Testimonials */
+  .testimonial-grid {
+    width: 100%;
     perspective: 700px; 
     padding: 0 10px;
     margin-top: -30px;
