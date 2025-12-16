@@ -78,21 +78,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 // Flip-up images
-const animElements = document.querySelectorAll('.fade-up');
+// const animElements = document.querySelectorAll('.fade-up');
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const duration = entry.target.dataset.duration || 800; // default 0.8s
-      entry.target.style.transitionDuration = `${duration}ms`;
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('visible'); // allow re-animation
-    }
-  });
-}, { threshold: 0.2 });
+// const fadeObserver = new IntersectionObserver(entries => {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       const duration = entry.target.dataset.duration || 800; // default 0.8s
+//       entry.target.style.transitionDuration = `${duration}ms`;
+//       entry.target.classList.add('visible');
+//     } else {
+//       entry.target.classList.remove('visible'); // allow re-animation
+//     }
+//   });
+// }, { threshold: 0.2 });
 
-animElements.forEach(el => fadeObserver.observe(el));
+// animElements.forEach(el => fadeObserver.observe(el));
 
   /* ===== ANIMATION ===== */
   const allElements = document.querySelectorAll('.fade-up, .flip-down img, .blur-text, #home_img, .zoom-out-down');

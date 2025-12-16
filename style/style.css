@@ -1515,10 +1515,10 @@ transform: translateY(0);
     transform-origin: top;
   }
 
-  .flip-down img.animate {
+  /* .flip-down img.animate {
     transform: rotateX(0deg) scale(1);
     opacity: 1;
-  }
+  } */
 
   .mission h2 {
     font-size: 30px;
