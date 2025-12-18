@@ -649,6 +649,7 @@ transform: translateY(0);
   font-weight: 600;
   transition: 0.3s ease;
   font-size: 15px;
+  font-family: Alegreya;
 }
 
 .btn1:hover {
@@ -1034,6 +1035,7 @@ transform: translateY(0);
   display: flex;
   justify-content: center;
   perspective: 1000px; 
+  margin-top: -30px;
 }
 
 /* Image styling */
@@ -1048,21 +1050,31 @@ transform: translateY(0);
   opacity: 0;
 }
 
+.flip-down {
+  perspective: 1000px;
+}
+
 .flip-down img {
   width: 100%;
   max-width: 600px;
   object-fit: cover;
-  transform: rotateX(-90deg) scale(1.2); /* start flipped down */
-  transform-origin: top; /* flip from top edge */
+
+  /* start hidden */
   opacity: 0;
+  transform: rotateX(-90deg) scale(1.2);
+  transform-origin: top;
+
   transition: transform 0.8s ease, opacity 0.8s ease;
+
+  /* important for inspect + iOS */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
-.flip-down img.animate {
-  transform: rotateX(0deg) scale(1.2); /* end flat */
+.flip-down.animate img {
   opacity: 1;
+  transform: rotateX(0deg) scale(1.2);
 }
-
 
 .mission .text {
   text-align: right;
@@ -1469,50 +1481,66 @@ transform: translateY(0);
   }
 
   /* Mission & Vision Section */
-  .mission, .vision {
-    text-align: center;
-    gap: 20px;
-  }
+  @media (max-width: 480px) {
 
-  .mission .text{
-    margin: 0;
-    text-align: center !important;
-    margin-bottom: -50px;
-  }
-
-  .vision .text {
-    margin: 0;
-    text-align: center !important;
-    margin-top: -90px;
-    margin-bottom: 70px;
-  }
-  .mission .image,
-  .flip-down {
-    flex: 1 1 100%;
-    perspective: 700px; 
-    padding: 0 10px;
-    margin-top: 20px;
-  }
-
-  .vision .image,
-  .flip-down {
-    flex: 1 1 100%;
-    perspective: 700px; 
-    padding: 0 10px;
-    margin-top: -30px;
-  }
+    .mission-vision {
+      padding: 40px 20px;
+    }
   
-  .mission img,
-  .vision img {
-    max-width: 100%;
-    transform: scale(1); 
-    opacity: 1; 
-  }
+    .mission,
+    .vision {
+      flex-direction: column;
+      gap: 24px;
+    }
+  
+    /* reset desktop alignment */
+    .mission,
+    .vision {
+      justify-content: center;
+    }
+  
+    .mission .text,
+    .vision .text {
+      text-align: center;
+      margin: 0;
+      flex: 1 1 auto;
+    }
+  
+    .mission .image{
+      flex: 1 1 auto;
+      margin: 0;
+      margin-top: -30px;
+      margin-bottom: -30px;
+    }
+  
+    .vision .image {
+      flex: 1 1 auto;
+      margin: 0;
+      margin-bottom: -50px;
 
-  .flip-down img {
-    max-width: 100%;
-    transform: rotateX(-90deg) scale(1);
-    transform-origin: top;
+    }
+
+    /* text sizes */
+    .mission h2,
+    .vision h2 {
+      font-size: 32px;
+    }
+  
+    .mission p,
+    .vision p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  
+    /* image scaling */
+    .flip-down img {
+      max-width: 100%;
+      transform: rotateX(-90deg) scale(1.05);
+    }
+  
+    .flip-down.animate img {
+      transform: rotateX(0deg) scale(1.05);
+    }
   }
 
   /* .flip-down img.animate {

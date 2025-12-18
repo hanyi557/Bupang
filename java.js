@@ -95,25 +95,25 @@ document.addEventListener('DOMContentLoaded', function() {
 // animElements.forEach(el => fadeObserver.observe(el));
 
   /* ===== ANIMATION ===== */
-  const allElements = document.querySelectorAll('.fade-up, .flip-down img, .blur-text, #home_img, .zoom-out-down');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Handle fade-up duration
-      if (entry.target.classList.contains('fade-up')) {
-        const duration = entry.target.dataset.duration || 800;
-        entry.target.style.transitionDuration = `${duration}ms`;
+  const elements = document.querySelectorAll(
+    '.fade-up, .fade-in-target, .blur-text, #home_img, .zoom-out-down, .flip-down'
+  );
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        entry.target.classList.add('visible');
+  
+        // stop observing so it never disappears
+        observer.unobserve(entry.target);
       }
-      entry.target.classList.add('animate');
-      entry.target.classList.add('visible');
-    } else {
-      entry.target.classList.remove('animate');
-    }
+    });
+  }, {
+    threshold: 0.2
   });
-}, { threshold: 0.2 });
-
-allElements.forEach(el => observer.observe(el));
+  
+  elements.forEach(el => observer.observe(el));
 
   /* ===== MENU (Recipe Modal) ===== */
   const recipeCards = document.querySelectorAll('.recipe-card');
