@@ -473,34 +473,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Show checkout success message
   function showCheckoutSuccess() {
     const successOverlay = document.createElement('div');
-    successOverlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10000;
-      animation: fadeIn 0.3s ease;
-    `;
+  successOverlay.className = 'checkout-success-overlay';
 
-    successOverlay.innerHTML = `
-      <div style="background:white; padding:40px; border-radius:16px; text-align:center; max-width:400px; animation: slideUp 0.4s ease;">
-        <div style="width:80px; height:80px; background:#6ca96e; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center;">
-          <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <h2 style="color:#333; margin-bottom:10px; font-size:24px; font-weight:700;">Checkout Successful!</h2>
-        <p style="color:#666; margin-bottom:20px; font-size:16px;">Your order has been placed successfully.</p>
-        <p style="color:#999; font-size:14px;">Thank you for choosing Bupang Bakery!</p>
+  successOverlay.innerHTML = `
+    <div class="checkout-success-box">
+      <div class="icon-circle">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
       </div>
-    `;
+      <h2>Checkout Successful!</h2>
+      <p>Your order has been placed successfully.</p>
+      <p>Thank you for choosing Bupang Bakery!</p>
+    </div>
+  `;
 
-    document.body.appendChild(successOverlay);
+  document.body.appendChild(successOverlay);
+
 
     // Add animations
     const style = document.createElement('style');
