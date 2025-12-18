@@ -3031,6 +3031,7 @@ transform: translateY(0);
       margin-bottom: 25px;
       max-width: none; 
       margin: 30px;
+      margin-left: 30px;
     }
   
     .btn-learn {
